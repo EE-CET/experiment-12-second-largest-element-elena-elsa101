@@ -1,22 +1,23 @@
 
 import java.util.*;
 public class SecondLargest{
+
 public static void main(String[] args){
 Scanner sc=new Scanner(System.in);
 int n=sc.nextInt();
-int[] arr=new int[n];
-for(int i=0;i<n;i++) arr[i]=sc.nextInt();
 int first=Integer.MIN_VALUE,second=Integer.MIN_VALUE;
 for(int i=0;i<n;i++){
-if(arr[i]>first){
-second=first;
-first=arr[i];
+int x=sc.nextInt();
+if(x>first){
+if(first!=Integer.MIN_VALUE) second=first;
+first=x;
 }
-else if(arr[i]>second && arr[i]!=first){
-second=arr[i];
+else if(x>second && x!=first){
+second=x;
 }
 }
 if(second==Integer.MIN_VALUE) System.out.print(-1);
 else System.out.print(second);
 }
 }
+
