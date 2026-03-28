@@ -1,7 +1,6 @@
-    
-import java.util.*;
-public class SecondLargest {
 
+import java.util.*;
+public class Main{
 public static void main(String[] args){
 Scanner sc=new Scanner(System.in);
 int n=sc.nextInt();
@@ -17,7 +16,7 @@ else if(arr[i]>second && arr[i]!=first){
 second=arr[i];
 }
 }
-System.out.print(second);
+if(second==Integer.MIN_VALUE) System.out.print(-1);
+else System.out.print(second);
 }
 }
-
