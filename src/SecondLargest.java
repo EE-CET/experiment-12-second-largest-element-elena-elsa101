@@ -1,23 +1,29 @@
+import java.util.Scanner;
 
-import java.util.*;
-public class SecondLargest{
+public class SecondLargest {
 
-public static void main(String[] args){
-Scanner sc=new Scanner(System.in);
-int n=sc.nextInt();
-int first=Integer.MIN_VALUE,second=Integer.MIN_VALUE;
-for(int i=0;i<n;i++){
-int x=sc.nextInt();
-if(x>first){
-if(first!=Integer.MIN_VALUE) second=first;
-first=x;
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            if (!sc.hasNextInt()) return;
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            
+            int max1 = Integer.MIN_VALUE;
+            int max2 = Integer.MIN_VALUE;
+            
+            for (int i = 0; i < n; i++) {
+                if (sc.hasNextInt()) {
+                    arr[i] = sc.nextInt();
+                    if (arr[i] > max1) {
+                        max2 = max1;
+                        max1 = arr[i];
+                    } else if (arr[i] > max2) {
+                        max2 = arr[i];
+                    }
+                }
+            }
+            
+            System.out.println(max2);
+        }
+    }
 }
-else if(x>second && x!=first){
-second=x;
-}
-}
-if(second==Integer.MIN_VALUE) System.out.print(-1);
-else System.out.print(second);
-}
-}
-
